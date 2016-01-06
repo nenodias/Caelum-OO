@@ -15,11 +15,6 @@ import java.util.Scanner;
  * @author nenodias
  */
 public class Cliente {
-    public static void main(String[] args) throws UnknownHostException, IOException {
-        //Dispara cliente
-        int porta = 12345;
-        new Cliente ("192.16.0.38", porta).executa();
-    }
     
     private String host;
     private int porta;

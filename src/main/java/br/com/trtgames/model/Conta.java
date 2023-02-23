@@ -1,72 +1,73 @@
 package br.com.trtgames.model;
+
 import java.util.Objects;
+
 public class Conta {
-	private Long numero;
-	private Double saldo = 0D;
-	private Double limite;
-	private Cliente cliente;
-	
-	public Conta(Long numero,Cliente cliente,Double limite){
-		this.numero = numero;
-		this.cliente = cliente;
-		this.limite = limite;
-	}
-	
-	public void saca(Double quantidade)throws EstouroDeLimite{
-		if(this.saldo+this.limite > quantidade){
-			this.saldo -= quantidade;
-		}
-		else {
-                throw new EstouroDeLimite("Erro estouro do limite da Conta");
-            } 
-	}
-	
-	public void deposita(Double quantidade) throws EstouroDeLimite{
-		if(quantidade > 0) {
-                this.saldo += quantidade;
-            }
-		else {
-                throw new EstouroDeLimite("Erro Dep�sito de valor Negativo");
-            }
-	}
-	
-	public void getsaldo(){
-		System.out.println("Saldo: "+this.saldo+"\n"+"Cliente: "+this.cliente.getNome());
-	}
-	
-	public void transfere(Conta destino, Double valor) throws EstouroDeLimite{
-		if(this.saldo+this.limite > valor){
-			this.saldo -= valor;
-			destino.deposita(valor);
-		}
-		else {
-                throw new EstouroDeLimite("Erro estouro do limite da Conta");
-            }
-	}
-	//N�mero
-	public Long getNumero() {
-		return this.numero;
-	}
+    private Long numero;
+    private Double saldo = 0D;
+    private Double limite;
+    private Cliente cliente;
 
-	public void setNumero(Long numero) {
-		this.numero = numero;
-	}
-	//Limite da Conta
-	public Double getLimite() {
-		return limite;
-	}
+    public Conta(Long numero, Cliente cliente, Double limite) {
+        this.numero = numero;
+        this.cliente = cliente;
+        this.limite = limite;
+    }
 
-//	public void setLimite(double limite) {
+    public void saca(Double quantidade) throws EstouroDeLimite {
+        if (this.saldo + this.limite > quantidade) {
+            this.saldo -= quantidade;
+        } else {
+            throw new EstouroDeLimite("Erro estouro do limite da Conta");
+        }
+    }
+
+    public void deposita(Double quantidade) throws EstouroDeLimite {
+        if (quantidade > 0) {
+            this.saldo += quantidade;
+        } else {
+            throw new EstouroDeLimite("Erro Dep�sito de valor Negativo");
+        }
+    }
+
+    public void getsaldo() {
+        System.out.println("Saldo: " + this.saldo + "\n" + "Cliente: " + this.cliente.getNome());
+    }
+
+    public void transfere(Conta destino, Double valor) throws EstouroDeLimite {
+        if (this.saldo + this.limite > valor) {
+            this.saldo -= valor;
+            destino.deposita(valor);
+        } else {
+            throw new EstouroDeLimite("Erro estouro do limite da Conta");
+        }
+    }
+
+    //N�mero
+    public Long getNumero() {
+        return this.numero;
+    }
+
+    public void setNumero(Long numero) {
+        this.numero = numero;
+    }
+
+    //Limite da Conta
+    public Double getLimite() {
+        return limite;
+    }
+
+    //	public void setLimite(double limite) {
 //		this.limite = limite;
 //	}
-	//Cliente
-	public Cliente getCliente() {
-		return cliente;
-	}
+    //Cliente
+    public Cliente getCliente() {
+        return cliente;
+    }
 
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
 
     @Override
     public int hashCode() {

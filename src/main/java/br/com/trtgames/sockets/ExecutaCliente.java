@@ -5,10 +5,10 @@ import java.net.UnknownHostException;
 
 public class ExecutaCliente {
 
-	public static void main(String[] args) throws UnknownHostException, IOException {
+    public static void main(String[] args) throws UnknownHostException, IOException {
         //Dispara cliente
         int porta = 12345;
-        new Cliente ("127.0.0.1", porta).executa();
+        new Cliente("127.0.0.1", porta).executa();
     }
-	
+
 }

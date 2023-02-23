@@ -2,32 +2,35 @@ package br.com.trtgames.model;
 
 import java.util.Objects;
 
-public class Cliente /*implements Comparable<Cliente>*/{
-	private String nome;
-	private Long cpf;
-	
-	public Cliente(String nome,Long cpf){
-		this.nome = nome;
-		this.cpf = cpf;
-	}
-	
-	public String getNome() {
-		return nome;
-	}
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+public class Cliente /*implements Comparable<Cliente>*/ {
+    private String nome;
+    private Long cpf;
+
+    public Cliente(String nome, Long cpf) {
+        this.nome = nome;
+        this.cpf = cpf;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
     @Override
     public String toString() {
         return "Cliente{" + "nome=" + nome + ", cpf=" + cpf + '}';
     }
-	public Long getCpf() {
-		return cpf;
-	}
-	public void setCpf(Long cpf) {
-		this.cpf = cpf;
-	}
+
+    public Long getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(Long cpf) {
+        this.cpf = cpf;
+    }
 
 //    @Override//Implementando o metodo da Interface Comparable
 //    public int compareTo(Cliente o) {
